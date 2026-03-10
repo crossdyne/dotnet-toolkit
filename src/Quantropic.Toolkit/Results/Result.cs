@@ -183,7 +183,7 @@ namespace Quantropic.Toolkit.Results
         /*-- Переопределённые методы --------------------------------------------*/
 
         public override string ToString() => IsSuccess
-            ? $"Success({Value})"
+            ? $"Success({Value?.GetType().Name})"
             : $"Failure({string.Join(", ", Errors.Select(e => e.Message))})";
     }
 }
