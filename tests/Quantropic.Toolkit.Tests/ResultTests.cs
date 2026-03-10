@@ -516,5 +516,24 @@ namespace Quantropic.Toolkit.Tests
         }
 
         #endregion
+    
+        #region ErrorCode 
+
+        [Fact]
+        public void ErrorCode_Custom_Success()
+        {
+            ErrorCode MyError = ErrorCode.Custom(nameof(MyError), 10_001);
+
+            Assert.Equal(10_001, MyError.Code);
+            Assert.Equal(nameof(MyError), MyError.Name);
+        }
+
+        [Fact]
+        public void ErrorCode_Custom_ThrowArgumentOutOfRangeException() => Assert.Throws<ArgumentOutOfRangeException>(() => ErrorCode.Custom("MyError", 156));
+
+        [Fact]
+        public void ErrorCode_Custom_ThrowArgumentException() => Assert.Throws<ArgumentException>(() => ErrorCode.Custom("", 156));
+
+        #endregion
     }
 }
