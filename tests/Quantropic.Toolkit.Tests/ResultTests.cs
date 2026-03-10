@@ -83,7 +83,7 @@ namespace Quantropic.Toolkit.Tests
             Assert.True(result.IsFailure);
             Assert.False(result.IsSuccess);
             _output.WriteLine(result.StringMessage);
-            Assert.Contains("1) Код: 0:Null. Причина: Объект имеет нуль ссылку", result.StringMessage);
+            Assert.Contains($"1) Код: {ErrorCode.Null.Code}:{ErrorCode.Null.Name}. Причина: Объект имеет нуль ссылку", result.StringMessage);
         }
 
         [Fact]
@@ -288,8 +288,8 @@ namespace Quantropic.Toolkit.Tests
             var result = Result.Failure(errors);
             var message = result.StringMessage;
 
-            Assert.Contains("1) Код: 0:Null. Причина: first", message);
-            Assert.Contains("2) Код: 0:NotFound. Причина: second", message);
+            Assert.Contains($"1) Код: {ErrorCode.Null.Code}:{ErrorCode.Null.Name}. Причина: first", message);
+            Assert.Contains($"2) Код: {ErrorCode.NotFound.Code}:{ErrorCode.NotFound.Name}. Причина: second", message);
         }
 
         [Fact]
