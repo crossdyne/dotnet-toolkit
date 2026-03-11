@@ -1,6 +1,6 @@
 namespace Quantropic.Toolkit.Validation
 {
- public sealed class RuleValidator
+    public class RuleValidator
     {
         private readonly List<(Func<bool> IsInvalid, string ErrorMessage)> _rules = [];
 
