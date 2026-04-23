@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Quantropic.Toolkit\Quantropic.Toolkit.csproj" />
+    <ProjectReference Include="..\..\src\Crossdyne.Toolkit\Crossdyne.Toolkit.csproj" />
   </ItemGroup>
 
   <ItemGroup>

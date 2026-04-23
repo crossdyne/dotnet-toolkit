@@ -1,6 +1,6 @@
-﻿using Quantropic.Toolkit.Primitives;
+﻿using Crossdyne.Toolkit.Primitives;
 
-namespace Quantropic.Toolkit.Results
+namespace Crossdyne.Toolkit.Results
 {
     public static class ResultExtensions
     {

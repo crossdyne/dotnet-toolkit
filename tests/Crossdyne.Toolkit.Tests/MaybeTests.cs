@@ -1,6 +1,6 @@
-using Quantropic.Toolkit.Primitives;
+using Crossdyne.Toolkit.Primitives;
 
-namespace Quantropic.Toolkit.Tests
+namespace Crossdyne.Toolkit.Tests
 {
     public class MaybeTests
     {
