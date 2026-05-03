@@ -112,6 +112,83 @@ namespace Crossdyne.Toolkit.Tests
 
         #endregion
 
+        #region IResultWithFactory 
+
+        [Fact]
+        public void CreateFailure_WithSingleError_ReturnsFailureResult()
+        {
+            var error = new Error(ErrorCode.NotFound, "Пользователь не найден");
+            var result = Result.CreateFailure([error]);
+
+            Assert.NotNull(result);
+            Assert.True(result.IsFailure);
+            Assert.Single(result.Errors);
+            Assert.Equal(error, result.Errors[0]);
+        }
+
+        [Fact]
+        public void CreateFailure_WithMultipleErrors_ReturnsFailureResult()
+        {
+            var errors = new List<Error>
+            {
+                new(ErrorCode.Null, "Объект имеет нуль ссылку"),
+                new(ErrorCode.NotFound, "Объект не найден")
+            };
+            var result = Result.CreateFailure(errors);
+
+            Assert.NotNull(result);
+            Assert.True(result.IsFailure);
+            Assert.Equal(2, result.Errors.Count);
+        }
+
+        [Fact]
+        public void CreateFailure_WithNullErrors_ThrowsInvalidOperationException()
+        {
+            Assert.Throws<ArgumentNullException>(() => Result.CreateFailure(null!));
+        }
+
+        [Fact]
+        public void CreateFailure_WithEmptyErrors_ThrowsInvalidOperationException()
+        {
+            Assert.Throws<InvalidOperationException>(() => Result.CreateFailure(Array.Empty<Error>()));
+        }
+
+        [Fact]
+        public void CreateFailure_Generic_WithTypedResult_ReturnsCorrectType()
+        {
+            var errors = new[] { new Error(ErrorCode.Null, "Ошибка типизированного результата") };
+            var result = Result<User>.CreateFailure(errors);
+
+            Assert.NotNull(result);
+            Assert.True(result.IsFailure);
+            Assert.IsType<Result<User>>(result);
+            Assert.Single(result.Errors);
+            Assert.Equal("Ошибка типизированного результата", result.Errors[0].Message);
+        }
+
+        [Fact]
+        public void CreateFailure_GenericMethodConstraint_SimulatesValidationBehavior()
+        {
+            // Эмуляция того, как код будет вызывать метод через дженерик-ограничение
+            var errors = new[] { new Error(ErrorCode.NotFound, "Симуляция пайплайна") };
+            var result = CreateFailureViaInterface<Result<User>>(errors);
+
+            Assert.True(result.IsFailure);
+            Assert.Single(result.Errors);
+            Assert.Equal("Симуляция пайплайна", result.Errors[0].Message);
+        }
+
+        /// <summary>
+        /// Вспомогательный метод, имитирующий constraint в ValidationBehavior
+        /// </summary>
+        private static TResponse CreateFailureViaInterface<TResponse>(IEnumerable<Error> errors) 
+            where TResponse : Result, IResultWithFactory<TResponse>
+        {
+            return TResponse.CreateFailure(errors);
+        }
+
+        #endregion
+
         #region ImmutableList
 
         [Fact]

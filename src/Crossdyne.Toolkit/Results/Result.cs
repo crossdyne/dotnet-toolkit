@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Crossdyne.Toolkit.Results
 {
-    public abstract class Result
+    public abstract class Result : IResultWithFactory<Result>
     {
         public bool IsSuccess { get; }
         public bool IsFailure => !IsSuccess;
@@ -32,6 +32,8 @@ namespace Crossdyne.Toolkit.Results
         public static Result<Unit> Success() => Result<Unit>.Success(Unit.Value);
         public static Result<Unit> Failure(Error error) => Result<Unit>.Failure(error);
         public static Result<Unit> Failure(IEnumerable<Error> errors) => Result<Unit>.Failure(errors);
+
+        public static Result CreateFailure(IEnumerable<Error> errors) => Failure(errors);
 
         /// <summary>
         /// Комбинирует несколько результатов. Возвращает Failure, если есть хотя бы одна ошибка.
@@ -107,7 +109,7 @@ namespace Crossdyne.Toolkit.Results
             $"Status: [{IsSuccess}] Code: [{error.Code} - {error.Code}] Info: [{error.Message}]");
     }
 
-    public class Result<TValue> : Result
+    public class Result<TValue> : Result, IResultWithFactory<Result<TValue>>
     {
         private readonly TValue? _value;
 
@@ -135,6 +137,8 @@ namespace Crossdyne.Toolkit.Results
         public new static Result<TValue> Failure(Error error) => new(default, false, [error]);
 
         public new static Result<TValue> Failure(IEnumerable<Error> errors) => new(default, false, errors);
+
+        public new static Result<TValue> CreateFailure(IEnumerable<Error> errors) => Failure(errors);
 
         /// <summary>
         /// Преобразует успешный результат через проектор.
