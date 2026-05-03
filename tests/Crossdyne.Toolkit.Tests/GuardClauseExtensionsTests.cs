@@ -1,6 +1,7 @@
-using Quantropic.Toolkit.Validation;
 
-namespace Quantropic.Toolkit.Tests
+using Crossdyne.Toolkit.Validation;
+
+namespace Crossdyne.Toolkit.Tests
 {
     public class GuardClauseExtensionsTests
     {

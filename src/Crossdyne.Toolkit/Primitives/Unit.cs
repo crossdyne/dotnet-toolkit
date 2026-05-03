@@ -1,4 +1,4 @@
-﻿namespace Quantropic.Toolkit.Primitives
+﻿namespace Crossdyne.Toolkit.Primitives
 {
     public readonly struct Unit
     {

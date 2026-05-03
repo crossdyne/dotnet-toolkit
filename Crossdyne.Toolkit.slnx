@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Crossdyne.Toolkit/Crossdyne.Toolkit.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Crossdyne.Toolkit.Tests/Crossdyne.Toolkit.Tests.csproj" />
+  </Folder>
+</Solution>

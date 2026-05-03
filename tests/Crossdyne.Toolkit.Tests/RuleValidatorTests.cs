@@ -1,6 +1,6 @@
-using Quantropic.Toolkit.Validation;
+using Crossdyne.Toolkit.Validation;
 
-namespace Quantropic.Toolkit.Tests
+namespace Crossdyne.Toolkit.Tests
 {
     public class RuleValidatorTests
     {

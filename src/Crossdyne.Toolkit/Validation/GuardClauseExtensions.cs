@@ -1,4 +1,4 @@
-namespace Quantropic.Toolkit.Validation
+namespace Crossdyne.Toolkit.Validation
 {
     public static class GuardClauseExtensions
     {
