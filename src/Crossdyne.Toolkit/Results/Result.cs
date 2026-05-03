@@ -1,9 +1,9 @@
-﻿using Quantropic.Toolkit.Primitives;
+﻿using Crossdyne.Toolkit.Primitives;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-namespace Quantropic.Toolkit.Results
+namespace Crossdyne.Toolkit.Results
 {
     public abstract class Result
     {

@@ -1,8 +1,8 @@
-﻿using Quantropic.Toolkit.Primitives;
-using Quantropic.Toolkit.Results;
+﻿using Crossdyne.Toolkit.Primitives;
+using Crossdyne.Toolkit.Results;
 using Xunit.Abstractions;
 
-namespace Quantropic.Toolkit.Tests
+namespace Crossdyne.Toolkit.Tests
 {
     public class ResultTests(ITestOutputHelper output)
     {

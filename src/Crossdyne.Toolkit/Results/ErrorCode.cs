@@ -1,4 +1,4 @@
-﻿namespace Quantropic.Toolkit.Results
+﻿namespace Crossdyne.Toolkit.Results
 {
     public readonly record struct ErrorCode
     {
