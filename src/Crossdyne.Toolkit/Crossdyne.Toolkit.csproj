@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Crossdyne.Toolkit</PackageId>
+    <Version>1.1.0</Version>
+    <Authors>Crossdyne</Authors>
+    <Company>Crossdyne</Company>
+    <PackageDescription>Crossdyne.Toolkit is a set of functional primitives for C#: Result Monad for type-safe handling of operations and errors, Maybe for safe handling of optional values, and a validator based on Guard Clauses. The library helps you write clean, expressive, and error-resistant code without relying on exceptions for control flow. All types are immutable and thread-safe.</PackageDescription>
+    <PackageTags>functional-programming;result-monad;maybe;optional;guard-clauses;validation;error-handling;csharp;dotnet;toolkit;primitives;immutable;thread-safe</PackageTags>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Crossdyne/dotnet-toolkit</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Crossdyne/dotnet-toolkit</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSource>false</IncludeSource>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources> 
+
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <RootNamespace>Crossdyne.Toolkit</RootNamespace>
+    <AssemblyName>Crossdyne.Toolkit</AssemblyName>
+  </PropertyGroup>
+  
+</Project>
