@@ -1,8 +1,0 @@
-<Solution>
-  <Folder Name="/src/">
-    <Project Path="src/Quantropic.Toolkit/Quantropic.Toolkit.csproj" />
-  </Folder>
-  <Folder Name="/tests/">
-    <Project Path="tests/Quantropic.Toolkit.Tests/Quantropic.Toolkit.Tests.csproj" />
-  </Folder>
-</Solution>
